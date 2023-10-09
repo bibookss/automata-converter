@@ -1,4 +1,4 @@
-from automaton.automaton import Automaton
+from .automaton import Automaton
 
 class NFA(Automaton):
     def get_next_states(self, input, state):
@@ -34,6 +34,7 @@ class NFA(Automaton):
         for state in active_states:
             if state in self.final_states:
                 print('String accepted')
-                return
+                return True
         
         print('String not accepted')
+        return False

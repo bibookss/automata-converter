@@ -1,4 +1,4 @@
-from automaton.nfa import NFA
+from .nfa import NFA
 
 class ENFA(NFA):
     def __init__(self):
@@ -51,12 +51,13 @@ class ENFA(NFA):
                     print('Consumed input: ', input)
                     print('Next states: ', next_states)
 
+                    if epsilon_states is not None:
+                        states.update(epsilon_states)
+                    
                     # Remove from state 
                     if state in states:
                         states.remove(state)
 
-                if epsilon_states is not None:
-                    states.update(epsilon_states)
         
             active_states = states
 
@@ -65,6 +66,7 @@ class ENFA(NFA):
         for state in active_states:
             if state in self.final_states and not length > 0:
                 print('String accepted')
-                return
+                return True
             
         print('String not accepted')
+        return False

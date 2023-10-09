@@ -51,5 +51,7 @@ class Automaton:
         is_final_state = self.is_final_state(state)
         if is_final_state:
             print('String accepted')
+            return True
         else:
             print('String not accepted')
+            return False

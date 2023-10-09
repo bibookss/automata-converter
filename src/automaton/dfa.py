@@ -1,4 +1,4 @@
-from automaton.automaton import Automaton
+from .automaton import Automaton
 
 class DFA(Automaton):
     pass
