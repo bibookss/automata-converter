@@ -1,2 +1,2 @@
-# automata-converter
-A Python app that converts an eNFA or NFA to its corresponding DFA.
+# automata-transitions
+A Python app that simulates DFA-, NFA-, and eNFA transitions.
