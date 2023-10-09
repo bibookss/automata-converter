@@ -1,13 +1,13 @@
 class Automaton:
     def __init__(self):
-        self.states = []
-        self.alphabet = []
+        self.states = set()
+        self.alphabet = set()
         self.initial_state = None
-        self.final_states = []
+        self.final_states = set()
         self.transitions = {}
 
     def add_state(self, state):
-        self.states.append(state)
+        self.states.add(state)
 
     def add_transition(self, input, from_state, to_state):
         if self.transitions.get(from_state) is None:
@@ -16,13 +16,13 @@ class Automaton:
         self.transitions[from_state].append((input, to_state))
 
     def set_alphabet(self, alphabet):
-        self.alphabet = alphabet
+        self.alphabet = set(alphabet)
 
     def set_initial_state(self, state):
         self.initial_state = state
 
     def set_final_states(self, states):
-        self.final_states = states
+        self.final_states = set(states)
 
     def get_next_state(self, input, state):
         for transition in self.transitions[state]:
